@@ -3,14 +3,31 @@
 {% block title %}{{ post.title }}{% endblock title %}
 
 {% block content %}
-<h1>{{ post.title }}</h1>
-<p>
-    <strong>
-        by: {{ post.author }} | On {{ post.created_at }}
-    </strong>
-</p>
-<p>{{ post.body }}</p>
-<a class="btn btn-primary" href="{% url 'post_edit' post.id %}">Edit</a> |
+<div class="row">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    By: {{ post.author }} | Date: {{ post.created }}
+                </h6>
+                <p class="card-text">{{ post.body }}</p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% if user.is_authenticated %}
+<div class="row button-row">
+    <div class="col-md-10">
+<a class="btn btn-primary" href="{% url 'post_edit' post.id %}">Edit</a> 
+</div>
+</div>
+<div class="row button-row">
+    <div class="col-md-10">
 <a class="btn btn-warning" href="{% url 'post_delete' post.id %}">Delete</a>
-
+</div>
+</div>
+{% endif %}
 {% endblock content %}
