@@ -21,13 +21,13 @@
 {% if user.is_authenticated %}
 <div class="row button-row">
     <div class="col-md-10">
-<a class="btn btn-primary" href="{% url 'post_edit' post.id %}">Edit</a> 
-</div>
+        <a class="btn btn-primary" href="{% url 'post_edit' post.id %}">Edit</a>
+    </div>
 </div>
 <div class="row button-row">
     <div class="col-md-10">
-<a class="btn btn-warning" href="{% url 'post_delete' post.id %}">Delete</a>
-</div>
+        <a class="btn btn-warning" href="{% url 'post_delete' post.id %}">Delete</a>
+    </div>
 </div>
 {% endif %}
 {% endblock content %}
